@@ -185,10 +185,10 @@ data(abs2006)
 data(abs2001)
 
 # Bind and plot 
-bind_rows(abs2016 %>% mutate(year = "2016"), 
-          abs2011 %>% mutate(year = "2011"), 
-          abs2006 %>% mutate(year = "2006"), 
-          abs2001 %>% mutate(year = "2001")) %>% 
+bind_rows(as.data.frame(abs2016 %>% mutate(year = "2016")), 
+          as.data.frame(abs2011 %>% mutate(year = "2011")), 
+          as.data.frame(abs2006 %>% mutate(year = "2006")), 
+          as.data.frame(abs2001 %>% mutate(year = "2001"))) %>% 
   ggplot(aes(x = year, y = MedianAge, col = year)) + 
   geom_boxplot() +
   geom_jitter(alpha = 0.3) +
